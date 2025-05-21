@@ -1,11 +1,11 @@
 const pool = require('./config/db');  // adjust path if needed
 const bcrypt = require('bcrypt');
-
 async function createTeacher(username, plainPassword) {
   try {
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(plainPassword, saltRounds);
 
+    const saltRounds = 10;
+    
+    const hashedPassword = await bcrypt.hash(plainPassword, saltRounds);
     await pool.query(
       'INSERT INTO teachers (username, password) VALUES ($1, $2)',
       [username, hashedPassword]

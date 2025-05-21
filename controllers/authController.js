@@ -1,5 +1,5 @@
 const pool = require('../config/db');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.login = async (req, res) => {
@@ -27,7 +27,6 @@ exports.login = async (req, res) => {
     if (!match) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-
     const token = jwt.sign({ id: teacher.id, username: teacher.username }, process.env.JWT_SECRET, {
       expiresIn: '1d',
     });
