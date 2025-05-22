@@ -20,4 +20,4 @@ async function createTeacher(username, plainPassword) {
 }
 
 // Change username and password here if you want
-createTeacher('Claudine', '123');
+createTeacher('Claudine', '124');
